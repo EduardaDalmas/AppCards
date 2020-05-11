@@ -1,19 +1,61 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { Button, View } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 
-export default function App() {
+function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button
+        onPress={() => navigation.openDrawer()}
+        title="Go to notifications"
+      />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function NotificationsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button onPress={() => navigation.openDrawer()} title="Go back home" />
+    </View>
+  );
+}
+
+const Drawer = createDrawerNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator 
+      initialRouteName="Home" 
+      hideStatusBar 
+      drawerStyle={{
+        backgroundColor: 'pink',
+      }}
+      drawerContentOptions={{
+        activeBackgroundColor: '#fff',
+        activeTintColor: 'pink',
+        inactiveTintColor: '#fff',
+        itemStyle: {
+          marginHorizontal: 20,
+          paddingLeft: 50,
+          height: 50,
+          borderTopRightRadius: 20,
+          borderBottomRightRadius: 20,
+          justifyContent: "center",
+        },
+        labelStyle: {
+          fontSize: 20,
+          fontWeight: "bold",
+        }
+      }}
+      >
+        <Drawer.Screen name="Home" component={HomeScreen} options={{
+          drawerIcon: ({ color, focused, size }) => {} 
+        }}/>
+        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
