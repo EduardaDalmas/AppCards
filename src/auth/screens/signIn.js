@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button, View, Text, TextInput, Image } from 'react-native';
-import Imag from './assets/check.png';
+import Imag from '../../../assets/check.png';
 
 function SignIn({ navigation }) {
     const [value, onChangeText] = React.useState('Email');
@@ -11,12 +11,12 @@ function SignIn({ navigation }) {
         style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
       /> 
         <TextInput
-            style={{ height: 50, borderColor: 'gray', width: '80%', borderWidth: 1 }}
+            style={{ height: 50, borderColor: 'gray', width: '80%', borderWidth: 1, padding: 10}}
             onChangeText={text => onChangeText(text)}
             value={value}
         />
         <TextInput secureTextEntry
-            style={{ height: 50, borderColor: 'gray', width: '80%', borderWidth: 1 }}
+            style={{ height: 50, borderColor: 'gray', width: '80%', borderWidth: 1, padding: 10 }}
             onChangeText={text => onChangeText(text)}
             value={value}
         />
