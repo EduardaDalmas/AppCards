@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./main/screens/home";
 import SignInScreen from "./auth/screens/signIn";
-import SignUpScreen from "./auth/screens/signUp";
+import CreateScreen from "./auth/screens/create";
 
 const Stack = createStackNavigator();
 
@@ -18,7 +18,7 @@ const Routes = () => {
         ) : (
           <>
             <Stack.Screen name="SignIn" component={SignInScreen} />
-            <Stack.Screen name="SignUp" component={SignUpScreen} />
+            <Stack.Screen name="Create" component={CreateScreen} />
           </>
         )}
       </Stack.Navigator>
