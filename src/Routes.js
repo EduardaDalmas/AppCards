@@ -3,15 +3,19 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./main/screens/home";
 import SignInScreen from "./auth/screens/signIn";
 import CreateScreen from "./auth/screens/create";
+import accountConnect from "./auth/connect";
 
 const Stack = createStackNavigator();
 
-const Routes = () => {
-    const [ isSignedIn, setIsSignedIn ] = React.useState(false);
+const Routes = ({ authenticated, initSession}) => {
+    
+    React.useEffect(() => {
+      initSession();
+    }, []);
 
   return (
       <Stack.Navigator>
-        {isSignedIn ? ( 
+        {authenticated === true ? ( 
           <> 
             <Stack.Screen name="Home" component={HomeScreen} />
           </>
@@ -25,4 +29,4 @@ const Routes = () => {
   );
 }
 
-export default Routes;
+export default accountConnect(Routes);
