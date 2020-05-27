@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Button, View, Text, TextInput, Image } from 'react-native';
 import Imag from '../../../assets/check.png';
-import accountConnect from '../../auth/connect';
+import accountConnect from '../connect';
 
-function Create({ navigation, updateRegister, createAccount, formAccountErro, SignIn }) {
+function Create({ updateRegister, createAccount, formAccountErro, SignIn }) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [name, setName] = React.useState('');
