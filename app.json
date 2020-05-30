@@ -13,7 +13,7 @@
     "splash": {
       "image": "./assets/check.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffffcc"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,8 +22,11 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": ".eduarda.dalmas.cards",
       "supportsTablet": true
     },
-    "description": ""
+    "android": {
+      "package": ".eduarda.dalmas.cards"
+    }
   }
 }

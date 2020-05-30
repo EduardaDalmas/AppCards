@@ -7,26 +7,26 @@ function createCards({ navigation, cardCreate, status,cardDelete, handleDelete }
     const [title, setTitle] = React.useState('');
     const [content, setContent] = React.useState('');
 
-    React.useEffect(() => {
-      if (status === "CARDS_CREATE_SUCCESS"){
-        Alert.alert("Card created", [
-          {
-            text: "ok", onPress: () => navigation.navigate("Home")
-          }
-        ])
-      }
-    }, [status]); 
+    // React.useEffect(() => {
+    //   if (status === "CARDS_CREATE_SUCCESS"){
+    //     Alert.alert("Card created", [
+    //       {
+    //         text: "ok", onPress: () => navigation.navigate("Home")
+    //       }
+    //     ])
+    //   }
+    // }, [status]); 
 
-    function handleDelete(cardId) {
-      Alert.alert("Card deleted", [
-        {
-          text: "cancel", onPress: () => false
-        },
-        {
-          text: "ok", onPress: () => cardDelete(cardId)
-        },
-      ]);
-    }
+    // function handleDelete(cardId) {
+    //   Alert.alert("Card deleted", [
+    //     {
+    //       text: "cancel", onPress: () => false
+    //     },
+    //     {
+    //       text: "ok", onPress: () => cardDelete(cardId)
+    //     },
+    //   ]);
+    // }
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-evenly', backgroundColor: "#ffffcc" }}>
