@@ -1,10 +1,32 @@
 import * as React from 'react';
-import { Button, View, Text, TextInput, Image } from 'react-native';
+import { Button, View, Text, TextInput, Image, Alert } from 'react-native';
 import Imag from '../../../assets/check.png';
+import cardsConnect from '../connect';
 
-function createCards({ navigation }) {
+function createCards({ navigation, cardCreate, status,cardDelete, handleDelete }) {
     const [title, setTitle] = React.useState('');
     const [content, setContent] = React.useState('');
+
+    React.useEffect(() => {
+      if (status === "CARDS_CREATE_SUCCESS"){
+        Alert.alert("Card created", [
+          {
+            text: "ok", onPress: () => navigation.navigate("Home")
+          }
+        ])
+      }
+    }, [status]); 
+
+    function handleDelete(cardId) {
+      Alert.alert("Card deleted", [
+        {
+          text: "cancel", onPress: () => false
+        },
+        {
+          text: "ok", onPress: () => cardDelete(cardId)
+        },
+      ]);
+    }
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-evenly', backgroundColor: "#ffffcc" }}>
@@ -34,4 +56,4 @@ function createCards({ navigation }) {
       );
     }
     
-export default createCards;
+export default cardsConnect(createCards);
