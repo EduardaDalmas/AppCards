@@ -56,4 +56,4 @@ function createCards({ navigation, cardCreate, status,cardDelete, handleDelete }
       );
     }
     
-export default cardsConnect(createCards);
+export default createCards;
