@@ -51,7 +51,7 @@ function Create({ updateRegister, createAccount, formAccountErro, SignIn }) {
             placeholder="Password"
         />
         <TextInput secureTextEntry
-            style={{ height: 50, borderColor: 'gray', width: '80%', borderWidth: 1, borderRadius: 8, padding: 10 }}
+            style={{ height: 50, borderColor: 'gray', width: '80%', borderWidth: 1, borderRadius: 8, padding: 10, margin: 10}}
             onChangeText={text => setConfirmePassword(text)}
             value={confirmePassword}
             placeholder="ConfirmePassword"
